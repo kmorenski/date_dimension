@@ -92,12 +92,13 @@ class Holidays(object):
         return self.get_nth_weekday_of_month(1, weekday, month, year)
 
     def get_last_weekday_of_month(self, weekday, month, year=None):
+        cal = calendar.Calendar()
         if not year:
             year = self.year
-        (first_weekday, days_in_month) = calendar.monthrange(year, month)
-        last_day = first_weekday + (days_in_month % 7) - 1
-
-        return days_in_month - abs(last_day - weekday)
+        for day_number_in_month, day_number_in_week in reversed(
+                list(cal.itermonthdays2(year, month))):
+            if day_number_in_month > 0 and day_number_in_week == weekday:
+                return day_number_in_month
 
     def hebrew_to_gregorian(self, year, hebrew_month, hebrew_day,
                              is_gregorian_year=True):
