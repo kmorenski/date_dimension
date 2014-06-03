@@ -2,7 +2,7 @@
 # 
 #  Author: Phil Schwartz (phil_schwartz@users.sourceforge.net) 
 #  Date: Tue Jan 14 10:22:35 2003.
-
+#
 # Most of this code is ported from Fourmilab's javascript calendar converter
 # http://www.fourmilab.ch/documents/calendar/
 # which was developed by John Walker
