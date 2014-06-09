@@ -385,6 +385,7 @@ class DateDimension(object):
         #insert = ("INSERT INTO date_dimension (%s) VALUES (%s)\n" %
         #          (', '.join(['%s']*(len.self.columns),)*2)
         keys = sorted(self.columns.keys())
+        # this is just awful, but works for generating the insert statement
         return ("INSERT INTO date_dimension (%s) VALUES (%s);\n" %
                 (', '.join(keys),
                  ', '.join(map(lambda k:
